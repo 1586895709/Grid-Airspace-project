@@ -9,7 +9,7 @@
 #include <set>
 #include <map>
 #include <string>
-#include <boost/multiprecision/cpp_int.hpp>
+#include <boost/multiprecision/cpp_int.hpp> //王在vcpkg中部署了此库，若没部署，请注释掉，并更改相应报错代码
 #include "knlohmannjson.hpp"
 #include "Eigen/Dense"
 
