@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\Grid">
+      <UniqueIdentifier>{bf874c7e-edab-411f-9b50-7479e8c74274}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Grid">
+      <UniqueIdentifier>{dea41ca8-2a89-4ab6-a03c-67544f7854b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Util">
+      <UniqueIdentifier>{9a6602a5-e09f-48c2-bd45-c067838c20dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Util">
+      <UniqueIdentifier>{990bd901-efeb-4482-8270-f27220e96aa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\UAV">
+      <UniqueIdentifier>{0b602a85-b0c5-47a6-8a9c-994b56842f44}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="geojson_reader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="object_gridifier.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PlanningMap.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="vtk_visualization.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="grid_3d.cpp">
+      <Filter>源文件\Grid</Filter>
+    </ClCompile>
+    <ClCompile Include="grid_base.cpp">
+      <Filter>源文件\Grid</Filter>
+    </ClCompile>
+    <ClCompile Include="grid_hexagon.cpp">
+      <Filter>源文件\Grid</Filter>
+    </ClCompile>
+    <ClCompile Include="util_function.cpp">
+      <Filter>源文件\Util</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="geojson_reader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="object_gridifier.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PlanningMap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vtk_visualization.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="grid_3d.h">
+      <Filter>头文件\Grid</Filter>
+    </ClInclude>
+    <ClInclude Include="grid_hexagon.h">
+      <Filter>头文件\Grid</Filter>
+    </ClInclude>
+    <ClInclude Include="grid_base.h">
+      <Filter>头文件\Grid</Filter>
+    </ClInclude>
+    <ClInclude Include="util_function.h">
+      <Filter>头文件\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="timer.h">
+      <Filter>头文件\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="knlohmannjson.hpp">
+      <Filter>头文件\Util</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
