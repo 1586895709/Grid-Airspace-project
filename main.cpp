@@ -17,7 +17,7 @@ int main()
 	string fileName = "../MapData/negaStringxiaojie.geojson";
 	string positiveAirspaceFileName = "../MapData/air_corridor.geojson";
 
-	// 构建网格框架对象
+	//// 构建网格框架对象
 	CoorXYZ minBorder(0, 0, 0);
 	CoorXYZ maxBorder(180, 90, 1e7);
 	GridBasePtr gridObjectPtr = std::make_shared<GRID_3D>(
