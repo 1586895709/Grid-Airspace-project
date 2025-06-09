@@ -191,7 +191,7 @@ bool PlanningMap::updateMapWithDynamicObs(std::map<GridCode, TimeInterval>& inpu
 
 bool PlanningMap::updateMapWithDynamicObsWithId(std::map<TimeInterval, std::vector<GridCode>>& inputDynamicObsMap, string objectId)
 {
-	// 1 重新组织数据结构
+	// 1 重新组织数据结构 <TimeInterval, vector<GridCode>> ————> <GridCode, vector<TimeInterval>>
 	std::map<GridCode, std::vector<TimeInterval>> tempMap = dynamicMapConversation(inputDynamicObsMap);
 
 	// 2 对地图进行更新
@@ -203,14 +203,26 @@ bool PlanningMap::updateMapWithDynamicObsWithId(std::map<GridCode, std::vector<T
 	// 对地图进行更新
 	for (auto tempMapIter = inputDynamicObsMap.begin(); tempMapIter != inputDynamicObsMap.end(); tempMapIter++) {
 		if (isInBorder(tempMapIter->first)) { // 判断网格编码是否位于地图范围内
-			auto tempFindResult = this->findCodeMapElement(tempMapIter->first);
+			auto tempFindResult = this->findCodeMapElement(tempMapIter->first);//tempFindResult类型是<GridCode, GridInfor>
 			for (int i = 0; i < tempMapIter->second.size(); i++) {
-				tempFindResult->second.occupyIntervalSetIdMap[objectId].insert(tempMapIter->second[i]);
+				tempFindResult->second.occupyIntervalSetIdMap[objectId].insert(tempMapIter->second[i]); //<GridCode, GridInfor>中GridInfor中的occupyIntervalSetIdMap中的Vector<time>时间区间合并
 			}
 		}
 	}
 	return true;
 }
+
+//bool PlanningMap::updateMapWithDynamicObsWithId(std::map<GridCode, std::vector<TimeInterval>>& inputDynamicObsMap, string objectId)
+//{
+//	for (auto tempMapIter = inputDynamicObsMap.begin(); tempMapIter != inputDynamicObsMap.end(); tempMapIter++) {
+//		if (isInBorder(tempMapIter->first)) {
+//			auto tempFindResult = this->findCodeMapElement(tempMapIter->first);
+//			for (int i = 0; i < tempMapIter->second.size(); i++) {
+//
+//			}
+//		}
+//	}
+//}
 
 bool PlanningMap::updatePositiveArea(
 	std::map<TimeInterval, std::vector<GridCode>>& inputPositiveAreaCodes, double positiveAreaVelFactor /*= 1*/)

@@ -60,6 +60,7 @@ struct GridInfor
 	bool isObs = false; // 是否为障碍物
 	std::set<time_t> occupy_set; // 占用信息（用于存储动态障碍物的相关信息
 	std::map<std::string, std::set<time_t>> occupyIdTimeSet; // 占用信息（用于存储动态障碍物的相关信息
+
 	std::set<std::vector<time_t>> occupy_interval_set; // 占用时间区间信息
 	std::map<std::string, std::set<std::vector<time_t>>> occupyIntervalSetIdMap; // 占用时间区间信息
 

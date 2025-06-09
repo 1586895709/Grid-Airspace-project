@@ -256,7 +256,7 @@ std::vector<GridCode> Object_Gridifier::discretizeCylinder(std::vector<CoorXYZ> 
 	// 1 底面平面网格化
 	vector<GridCode> bottomCodes = discretizeSurface_XY(bottomPts, level);
 
-	// 2 计算高度方向的最大最小网格
+	// 2 计算高度方向的最大最小网格（即空域其底部和顶部的高度网格坐标）
 	int bottomHeightCoor = this->pGridObjectPtr->toIJKFromXYZ(bottomPts[0], level)[2];
 	int ceilHeightCoor = this->pGridObjectPtr->toIJKFromXYZ(bottomPts[0] + CoorXYZ(0, 0, height), level)[2];
 
@@ -394,12 +394,12 @@ std::map<TimeInterval, vector<GridCode>> CylinderObjectGeojsonGridifier::gridifi
 	std::map<TimeInterval, vector<GridCode>> result;
 	for (int i = 0; i < this->bottomBorderPts.size(); i++) {
 		for (auto& tempPt : this->bottomBorderPts[i]) {
-			tempPt[2] = this->minHeight[i];
+			tempPt[2] = this->minHeight[i];  //把MinHeight赋值到bottomBorderPts中去
 		}
-		TimeInterval tempInterval = { this->beginTime[i], this->endTime[i] };
-		vector<GridCode> tempResult = this->discretizeCylinder(this->bottomBorderPts[i], this->maxHeight[i] - this->minHeight[i], level);
+		TimeInterval tempInterval = { this->beginTime[i], this->endTime[i] };//tempInterval时间间隔
+		vector<GridCode> tempResult = this->discretizeCylinder(this->bottomBorderPts[i], this->maxHeight[i] - this->minHeight[i], level); //tempResult储存当前空域的所有网格编码
 		auto& tempValueVector = result[tempInterval];
-		tempValueVector.insert(tempValueVector.end(), tempResult.begin(), tempResult.end());
+		tempValueVector.insert(tempValueVector.end(), tempResult.begin(), tempResult.end());//将当前空域的网格编码存入tempValueVector中，也就存入了result中的vector<GridCode>里
 		codeUnique(tempValueVector);
 		//result[tempInterval] = this->discretizeCylinder(this->bottomBorderPts[i], this->maxHeight[i] - this->minHeight[i], level);
 	}

@@ -62,7 +62,7 @@ struct Level {
 };
 
 class GridBase;
-typedef std::shared_ptr<GridBase> GridBasePtr;
+typedef std::shared_ptr<GridBase> GridBasePtr; //std::shared_ptr<GridBase>µÄ±ğÃûGridBasePtr
 
 class GridBase {
 protected:
